@@ -9,8 +9,11 @@ set -ouex pipefail
 # List of rpmfusion packages can be found here:
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
-# this installs a package from fedora repos
-dnf5 install -y tmux 
+# Installing packages
+dnf5 install -y hyprland sddm kitty flatpak nemo git distrobox curl wget
+
+#Enabling flathub
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 # Use a COPR Example:
 #
@@ -21,4 +24,8 @@ dnf5 install -y tmux
 
 #### Example for enabling a System Unit File
 
+# Install ollama
+curl -fsSL https://ollama.com/install.sh | sh
+
+systemctl enable sddm
 systemctl enable podman.socket
