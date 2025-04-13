@@ -9,8 +9,14 @@ set -ouex pipefail
 # List of rpmfusion packages can be found here:
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
+dnf -y install dnf-plugins-core
+
+dnf-3 config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+
+
+
 # Installing packages
-dnf5 install -y hyprland sddm kitty flatpak nemo git distrobox curl wget
+dnf5 install -y hyprland sddm kitty flatpak nemo git distrobox curl wget docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 #Enabling flathub
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
@@ -22,10 +28,7 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 # Disable COPRs so they don't end up enabled on the final image:
 # dnf5 -y copr disable ublue-os/staging
 
-#### Example for enabling a System Unit File
-
-# Install ollama
-curl -fsSL https://ollama.com/install.sh | sh
-
+# Enable systemd services
+systemctl enable docker
 systemctl enable sddm
 systemctl enable podman.socket
