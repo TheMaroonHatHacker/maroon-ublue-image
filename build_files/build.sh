@@ -16,10 +16,12 @@ dnf-3 config-manager --add-repo https://download.docker.com/linux/fedora/docker-
 
 
 # Installing packages
-dnf5 install -y hyprland sddm kitty flatpak nemo git distrobox curl wget docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+dnf5 install -y hyprland sddm kitty flatpak nemo git distrobox curl wget docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin NetworkManager nm-connection-editor network-manager-applet blueman bluez waybar rofi-wayland
 
 #Enabling flathub
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+
+
 
 # Use a COPR Example:
 #
