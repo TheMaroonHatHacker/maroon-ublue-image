@@ -31,6 +31,8 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 # dnf5 -y copr disable ublue-os/staging
 
 # Enable systemd services
+systemctl enable bluetooth
+systemctl enable NetworkManager
 systemctl enable docker
 systemctl enable sddm
 systemctl enable podman.socket
