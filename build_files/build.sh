@@ -16,12 +16,15 @@ dnf-3 config-manager --add-repo https://download.docker.com/linux/fedora/docker-
 
 
 # Installing packages
-dnf5 install -y hyprland sddm kitty flatpak nemo git distrobox curl wget docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin NetworkManager nm-connection-editor network-manager-applet blueman bluez waybar rofi-wayland
+dnf5 install -y hyprland sddm kitty flatpak nemo git distrobox curl wget docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin NetworkManager nm-connection-editor network-manager-applet blueman bluez waybar rofi-wayland steam
 
 #Enabling flathub
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
+# Install handheld daemon
 
+dnf copr enable hhd-dev/hhd
+dnf copr install hdd adjustor hhd-ui
 
 # Use a COPR Example:
 #
@@ -36,3 +39,4 @@ systemctl enable NetworkManager
 systemctl enable docker
 systemctl enable sddm
 systemctl enable podman.socket
+systemctl enable hhd@$(whoami)
