@@ -24,6 +24,7 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 # Install handheld daemon
 
 dnf5 -y copr enable hhd-dev/hhd
+dnf5 -y update
 dnf5 -y install hdd adjustor hhd-ui
 
 # Use a COPR Example:
